@@ -120,6 +120,7 @@ BYOK stands for **Bring Your Own Keys**. Instead of paying a subscription to a s
 - Support of MCP config in the UI (can be done in the code right now but we want to make it easier)
 - Better UI experience tailored to scientific workflows
 - Faster PDF parsing
+- AutoResearch integration
 - And much more
 
 ## Want more?
