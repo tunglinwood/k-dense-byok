@@ -567,8 +567,8 @@ export default function ChatPage() {
   const prevMessageCount = useRef(0);
 
   // Resizable panel widths (px)
-  const [treeWidth, setTreeWidth] = useState(224);
-  const [chatWidth, setChatWidth] = useState(420);
+  const [treeWidth, setTreeWidth] = useState(280);
+  const [chatWidth, setChatWidth] = useState(640);
   const [isResizing, setIsResizing] = useState(false);
   const dragging = useRef<"tree" | "chat" | null>(null);
   const dragStartX = useRef(0);

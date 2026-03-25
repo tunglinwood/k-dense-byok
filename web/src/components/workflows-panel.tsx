@@ -300,6 +300,8 @@ function LaunchDialog({
   const [placeholderValues, setPlaceholderValues] = useState<Record<string, string>>({});
   const [uploading, setUploading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [isEditingPrompt, setIsEditingPrompt] = useState(false);
+  const [editedPrompt, setEditedPrompt] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const updatePlaceholder = useCallback((key: string, value: string) => {
@@ -332,12 +334,16 @@ function LaunchDialog({
     .filter((ph) => ph.required)
     .every((ph) => placeholderValues[ph.key]?.trim());
 
+  const finalPrompt = editedPrompt ?? assembledPrompt;
+
   const handleLaunch = useCallback(() => {
-    onLaunch(assembledPrompt, model, compute, workflow.suggestedSkills);
+    onLaunch(finalPrompt, model, compute, workflow.suggestedSkills);
     onOpenChange(false);
     setPlaceholderValues({});
     setUploadedFiles([]);
-  }, [assembledPrompt, model, compute, workflow.suggestedSkills, onLaunch, onOpenChange]);
+    setEditedPrompt(null);
+    setIsEditingPrompt(false);
+  }, [finalPrompt, model, compute, workflow.suggestedSkills, onLaunch, onOpenChange]);
 
   const iconColor = CATEGORY_ICON_COLOR[workflow.category] ?? "text-muted-foreground";
 
@@ -419,10 +425,35 @@ function LaunchDialog({
           )}
 
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">Prompt preview</label>
-            <div className="max-h-32 overflow-y-auto rounded-lg border bg-muted/30 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
-              {assembledPrompt}
+            <div className="mb-1.5 flex items-center justify-between">
+              <label className="text-xs font-medium text-muted-foreground">
+                {isEditingPrompt ? "Edit prompt" : "Prompt preview"}
+              </label>
+              <button
+                type="button"
+                onClick={() => {
+                  if (!isEditingPrompt) {
+                    setEditedPrompt(editedPrompt ?? assembledPrompt);
+                  }
+                  setIsEditingPrompt(!isEditingPrompt);
+                }}
+                className="flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[11px] font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <PencilIcon className="size-3" />
+                {isEditingPrompt ? "Done" : "Edit"}
+              </button>
             </div>
+            {isEditingPrompt ? (
+              <textarea
+                value={editedPrompt ?? assembledPrompt}
+                onChange={(e) => setEditedPrompt(e.target.value)}
+                className="max-h-48 min-h-[5rem] w-full resize-y rounded-lg border bg-background px-3 py-2 text-xs leading-relaxed outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/30"
+              />
+            ) : (
+              <div className="max-h-32 overflow-y-auto rounded-lg border bg-muted/30 px-3 py-2 text-xs leading-relaxed text-muted-foreground">
+                {finalPrompt}
+              </div>
+            )}
           </div>
 
           {workflow.suggestedSkills.length > 0 && (
