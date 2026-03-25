@@ -69,6 +69,11 @@ Some skills correspond directly to MCP tools. **Always activate the skill before
 | Literature review | **literature-review** | — |
 | Data visualization | **matplotlib**, **plotly**, or **scientific-visualization** | — |
 | Image generation | **generate-image** | — |
+| Running code on Modal (GPU, remote compute) | **modal** | Modal SDK / CLI |
+
+### Modal compute — mandatory skill activation
+
+Any time Modal is mentioned — in the task description, in activated skill instructions, or as a dependency for GPU/remote execution — you **MUST** call `activate_skill` for the **modal** skill before writing or running any Modal-related code. The modal skill contains the tested procedures, authentication steps, and deployment patterns needed to execute code on a Modal instance. Do not attempt to use the Modal SDK, CLI, or write Modal stubs/apps without first activating this skill.
 
 </PROTOCOL:SKILLS>
 

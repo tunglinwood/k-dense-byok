@@ -20,6 +20,10 @@ Choose the lightest reliable path:
 - In `prompt`, pass the user's request, the expert's role/objective/constraints, relevant context, file paths, URLs, and explicit success criteria.
 - Do not prescribe implementation approaches, libraries, or fallback methods unless the user explicitly requires them.
 - **Skills passthrough (MANDATORY):** If the user's message names specific skills (e.g. "use the skills: 'writing', 'literature-review'"), you MUST include the exact skill names verbatim in the delegate prompt. Do not paraphrase, omit, reorder, or summarize the skill list. The expert relies on exact names to activate the correct skills.
+- **Modal compute passthrough (MANDATORY):** If the user's prompt requests specific compute infrastructure and mentions **Modal** (e.g. "run this on Modal", "use Modal GPUs", "deploy on Modal"), you MUST:
+  1. Include the compute requirement explicitly in the `delegate_task` prompt.
+  2. State that the expert **MUST activate and follow the `modal` skill** before writing or running any Modal-related code.
+  3. Do not assume the expert will infer Modal usage on its own — spell it out: "You must use the skill: 'modal' to execute this code on a Modal instance."
 
 ## Tool preferences
 
