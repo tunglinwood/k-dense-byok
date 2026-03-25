@@ -142,12 +142,19 @@ export function useSandbox(isActive = false) {
   }, []);
 
   const uploadFiles = useCallback(
-    async (files: FileList | File[]): Promise<string[]> => {
+    async (files: FileList | File[], paths?: string[]): Promise<string[]> => {
       if (!files.length) return [];
       setUploading(true);
       try {
         const body = new FormData();
-        for (const f of files) body.append("files", f);
+        const arr = Array.from(files);
+        for (let i = 0; i < arr.length; i++) {
+          body.append("files", arr[i]);
+          body.append(
+            "paths",
+            paths?.[i] || (arr[i] as File & { webkitRelativePath?: string }).webkitRelativePath || "",
+          );
+        }
         const res = await fetch(`${API_BASE}/sandbox/upload`, { method: "POST", body });
         if (!res.ok) throw new Error(`Upload failed: ${res.status}`);
         const data = await res.json();
@@ -159,7 +166,7 @@ export function useSandbox(isActive = false) {
         setUploading(false);
       }
     },
-    [fetchTree]
+    [fetchTree],
   );
 
   const saveFile = useCallback(async (path: string, content: string): Promise<boolean> => {

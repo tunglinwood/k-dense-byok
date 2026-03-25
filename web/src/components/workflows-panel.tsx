@@ -53,7 +53,6 @@ import {
   NetworkIcon,
   NewspaperIcon,
   PaletteIcon,
-  PaperclipIcon,
   PencilIcon,
   PieChartIcon,
   PlayIcon,
@@ -87,6 +86,7 @@ import {
   WrenchIcon,
   ZapIcon,
   CheckCircle2Icon,
+  FolderUpIcon,
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -292,7 +292,7 @@ function LaunchDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onLaunch: (prompt: string, model: Model, compute: ModalInstance | null, suggestedSkills: string[]) => void;
-  onUploadFiles?: (files: FileList | File[]) => Promise<string[]>;
+  onUploadFiles?: (files: FileList | File[], paths?: string[]) => Promise<string[]>;
   modalConfigured: boolean;
 }) {
   const [model, setModel] = useState<Model>(DEFAULT_MODEL);
@@ -303,6 +303,7 @@ function LaunchDialog({
   const [isEditingPrompt, setIsEditingPrompt] = useState(false);
   const [editedPrompt, setEditedPrompt] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const dirInputRef = useRef<HTMLInputElement>(null);
 
   const updatePlaceholder = useCallback((key: string, value: string) => {
     setPlaceholderValues((prev) => ({ ...prev, [key]: value }));
@@ -373,23 +374,44 @@ function LaunchDialog({
                   className="hidden"
                   onChange={handleFileUpload}
                 />
-                <button
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={uploading}
-                  className="flex w-full items-center justify-center gap-2 rounded-md border border-amber-500/20 bg-background px-3 py-2 text-xs font-medium transition-colors hover:bg-amber-500/10 disabled:opacity-50"
-                >
-                  {uploading ? (
-                    <>
-                      <LoaderIcon className="size-3.5 animate-spin text-amber-500" />
-                      <span className="text-muted-foreground">Uploading...</span>
-                    </>
-                  ) : (
-                    <>
-                      <UploadIcon className="size-3.5 text-amber-500" />
-                      <span className="text-muted-foreground">Choose files to upload</span>
-                    </>
-                  )}
-                </button>
+                {/* @ts-expect-error -- webkitdirectory is non-standard but supported in all major browsers */}
+                <input ref={dirInputRef} type="file" webkitdirectory="" className="hidden" onChange={handleFileUpload} />
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={uploading}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-amber-500/20 bg-background px-3 py-2 text-xs font-medium transition-colors hover:bg-amber-500/10 disabled:opacity-50"
+                  >
+                    {uploading ? (
+                      <>
+                        <LoaderIcon className="size-3.5 animate-spin text-amber-500" />
+                        <span className="text-muted-foreground">Uploading...</span>
+                      </>
+                    ) : (
+                      <>
+                        <UploadIcon className="size-3.5 text-amber-500" />
+                        <span className="text-muted-foreground">Files</span>
+                      </>
+                    )}
+                  </button>
+                  <button
+                    onClick={() => dirInputRef.current?.click()}
+                    disabled={uploading}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-md border border-amber-500/20 bg-background px-3 py-2 text-xs font-medium transition-colors hover:bg-amber-500/10 disabled:opacity-50"
+                  >
+                    {uploading ? (
+                      <>
+                        <LoaderIcon className="size-3.5 animate-spin text-amber-500" />
+                        <span className="text-muted-foreground">Uploading...</span>
+                      </>
+                    ) : (
+                      <>
+                        <FolderUpIcon className="size-3.5 text-amber-500" />
+                        <span className="text-muted-foreground">Folder</span>
+                      </>
+                    )}
+                  </button>
+                </div>
                 {uploadedFiles.length > 0 && (
                   <div className="mt-2 space-y-1">
                     {uploadedFiles.map((path) => (
@@ -498,7 +520,7 @@ export function WorkflowsPanel({
   modalConfigured,
 }: {
   onLaunch: (prompt: string, model: Model, compute: ModalInstance | null, suggestedSkills: string[]) => void;
-  onUploadFiles?: (files: FileList | File[]) => Promise<string[]>;
+  onUploadFiles?: (files: FileList | File[], paths?: string[]) => Promise<string[]>;
   modalConfigured: boolean;
 }) {
   const [selectedWorkflow, setSelectedWorkflow] = useState<Workflow | null>(null);
@@ -604,8 +626,8 @@ export function WorkflowsPanel({
                             <span className="text-sm font-medium text-foreground">{w.name}</span>
                             {w.requiresFiles && (
                               <span className="inline-flex items-center gap-0.5 rounded-full bg-amber-500/10 px-1.5 py-px text-[9px] font-medium text-amber-600 dark:text-amber-400 border border-amber-500/20">
-                                <PaperclipIcon className="size-2.5" />
-                                Files
+                                <UploadIcon className="size-2.5" />
+                                Needs user data
                               </span>
                             )}
                           </div>

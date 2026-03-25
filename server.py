@@ -7,7 +7,7 @@ import zipfile
 from pathlib import Path
 
 import yaml
-from fastapi import Body, HTTPException, Query, Request, UploadFile
+from fastapi import Body, Form, HTTPException, Query, Request, UploadFile
 from fastapi.responses import PlainTextResponse, StreamingResponse
 from google.adk.cli.fast_api import get_fast_api_app
 
@@ -123,17 +123,29 @@ UPLOAD_DIR = SANDBOX_ROOT / "user_data"
 
 
 @app.post("/sandbox/upload")
-async def sandbox_upload(files: list[UploadFile]):
-    """Upload files into sandbox/user_data."""
+async def sandbox_upload(
+    files: list[UploadFile],
+    paths: list[str] = Form(default=[]),
+):
+    """Upload files into sandbox/user_data, preserving directory structure."""
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
     saved = []
-    for f in files:
+    for i, f in enumerate(files):
         if not f.filename:
             continue
-        safe_name = Path(f.filename).name
-        if not safe_name or safe_name.startswith("."):
-            continue
-        dest = UPLOAD_DIR / safe_name
+        rel = paths[i].strip() if i < len(paths) else ""
+        if rel:
+            parts = Path(rel).parts
+            safe_parts = [p for p in parts if p not in ("..", ".") and not p.startswith(".")]
+            if not safe_parts:
+                continue
+            dest = UPLOAD_DIR / Path(*safe_parts)
+        else:
+            safe_name = Path(f.filename).name
+            if not safe_name or safe_name.startswith("."):
+                continue
+            dest = UPLOAD_DIR / safe_name
+        dest.parent.mkdir(parents=True, exist_ok=True)
         content = await f.read()
         dest.write_bytes(content)
         saved.append(str(dest.relative_to(SANDBOX_ROOT)))

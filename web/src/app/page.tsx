@@ -36,6 +36,7 @@ import { useAgent, type ActivityItem } from "@/lib/use-agent";
 import { useConfig } from "@/lib/use-config";
 import { useSkills } from "@/lib/use-skills";
 import type { TurnMeta } from "@/lib/provenance";
+import { hasDirectoryEntries, traverseDroppedEntries } from "@/lib/directory-upload";
 import { useSandbox, fileCategory, type TreeNode } from "@/lib/use-sandbox";
 import {
   CopyIcon,
@@ -91,7 +92,7 @@ function PromptDropZone({
 }: {
   children: React.ReactNode;
   onFileDrop?: (path: string) => void;
-  onFilesUpload?: (files: FileList) => void;
+  onFilesUpload?: (files: FileList | File[], paths?: string[]) => void;
 }) {
   const controller = usePromptInputController();
   const [isDragOver, setIsDragOver] = useState(false);
@@ -123,7 +124,7 @@ function PromptDropZone({
   }, []);
 
   const handleDrop = useCallback(
-    (e: React.DragEvent) => {
+    async (e: React.DragEvent) => {
       e.preventDefault();
       dragCounter.current = 0;
       setIsDragOver(false);
@@ -141,12 +142,17 @@ function PromptDropZone({
         return;
       }
 
-      // OS file drop from outside the browser
-      if (e.dataTransfer.files && e.dataTransfer.files.length > 0 && onFilesUpload) {
+      if (!onFilesUpload) return;
+
+      // OS directory or file drop from outside the browser
+      if (hasDirectoryEntries(e.dataTransfer.items)) {
+        const { files, paths } = await traverseDroppedEntries(e.dataTransfer.items);
+        if (files.length > 0) onFilesUpload(files, paths);
+      } else if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
         onFilesUpload(e.dataTransfer.files);
       }
     },
-    [controller, onFileDrop, onFilesUpload]
+    [controller, onFileDrop, onFilesUpload],
   );
 
   const isOsDrag = isDragOver;
@@ -358,7 +364,7 @@ function ChatInput({
   onComputeChange: (instance: ModalInstance | null) => void;
   selectedModel: Model;
   onModelChange: (model: Model) => void;
-  onUploadFiles: (files: FileList | File[]) => Promise<string[]>;
+  onUploadFiles: (files: FileList | File[], paths?: string[]) => Promise<string[]>;
   modalConfigured: boolean;
   allSkills: Skill[];
   selectedSkills: Skill[];
@@ -366,9 +372,9 @@ function ChatInput({
 }) {
   const controller = usePromptInputController();
 
-  const handleFilesUpload = useCallback(async (files: FileList) => {
-    const paths = await onUploadFiles(files);
-    for (const p of paths) onAddFile(p);
+  const handleFilesUpload = useCallback(async (files: FileList | File[], paths?: string[]) => {
+    const uploaded = await onUploadFiles(files, paths);
+    for (const p of uploaded) onAddFile(p);
   }, [onUploadFiles, onAddFile]);
 
   // Wrap onSubmit to append attached file paths and database context, then clear chips
