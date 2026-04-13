@@ -42,7 +42,8 @@
     "prompt": "Write a comprehensive review article on the topic: {topic}. Search the literature thoroughly, synthesize key findings across studies, identify consensus and controversies, highlight research gaps, and suggest future directions. Structure with clear thematic sections.",
     "suggestedSkills": [
       "literature-review",
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -90,7 +91,8 @@
     "suggestedSkills": [
       "scientific-writing",
       "venue-templates",
-      "citation-management"
+      "citation-management",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -188,7 +190,8 @@
     "prompt": "Write a Discussion section for the uploaded manuscript or these results: {findings}. (1) Summarize main findings, (2) Interpret in context of existing literature, (3) Discuss mechanisms and implications, (4) Acknowledge limitations, (5) Suggest future directions. Search the literature to support interpretive claims.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -208,7 +211,8 @@
     "prompt": "Write an Introduction section for a paper on: {topic}. Structure as: (1) Broad context and significance of the field, (2) Review of key prior work (cite real papers), (3) Identify the gap or unanswered question, (4) State the objective and approach of the current study, (5) Brief overview of what follows. Search the literature for accurate citations.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -266,7 +270,8 @@
     "prompt": "Review the references in the uploaded manuscript. (1) Verify each citation exists and is correctly attributed, (2) Fix formatting inconsistencies, (3) Identify claims in the text that need citations but lack them, (4) Suggest more recent or more relevant references where appropriate, (5) Ensure reference style matches {style} format.",
     "suggestedSkills": [
       "citation-management",
-      "pyzotero"
+      "pyzotero",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -641,7 +646,7 @@
     "description": "Pool effect sizes across studies with heterogeneity assessment",
     "category": "data",
     "icon": "Layers",
-    "prompt": "Conduct a meta-analysis using the uploaded study data. (1) Extract or verify effect sizes and standard errors, (2) Run fixed-effects and random-effects models, (3) Assess heterogeneity (I\u00b2, Q statistic, tau\u00b2), (4) Generate a forest plot, (5) Create a funnel plot to assess publication bias, (6) Run sensitivity and subgroup analyses.",
+    "prompt": "Conduct a meta-analysis using the uploaded study data. (1) Extract or verify effect sizes and standard errors, (2) Run fixed-effects and random-effects models, (3) Assess heterogeneity (I², Q statistic, tau²), (4) Generate a forest plot, (5) Create a funnel plot to assess publication bias, (6) Run sensitivity and subgroup analyses.",
     "suggestedSkills": [
       "statistical-analysis",
       "statsmodels",
@@ -748,7 +753,7 @@
     "description": "Linear, logistic, or mixed-effects regression modeling",
     "category": "data",
     "icon": "TrendingUp",
-    "prompt": "Fit a {regression_type} regression model on the uploaded data. Outcome: {outcome}, predictors: {predictors}. (1) Check assumptions (linearity, normality, homoscedasticity, multicollinearity), (2) Fit the model, (3) Report coefficients with CIs and p-values, (4) Assess model fit (R\u00b2, AIC, BIC), (5) Generate diagnostic plots, (6) Interpret key findings.",
+    "prompt": "Fit a {regression_type} regression model on the uploaded data. Outcome: {outcome}, predictors: {predictors}. (1) Check assumptions (linearity, normality, homoscedasticity, multicollinearity), (2) Fit the model, (3) Report coefficients with CIs and p-values, (4) Assess model fit (R², AIC, BIC), (5) Generate diagnostic plots, (6) Interpret key findings.",
     "suggestedSkills": [
       "statsmodels",
       "statistical-analysis",
@@ -779,7 +784,7 @@
     "description": "One-way, two-way, or repeated-measures ANOVA",
     "category": "data",
     "icon": "BarChart3",
-    "prompt": "Perform ANOVA on the uploaded data. Factor(s): {factors}, outcome: {outcome}. (1) Check assumptions (normality, homogeneity of variance), (2) Run the appropriate ANOVA (one-way, two-way, repeated measures), (3) Report F-statistics and p-values, (4) Run post-hoc pairwise comparisons with correction, (5) Calculate effect sizes (eta\u00b2), (6) Create bar/box plots with significance markers.",
+    "prompt": "Perform ANOVA on the uploaded data. Factor(s): {factors}, outcome: {outcome}. (1) Check assumptions (normality, homogeneity of variance), (2) Run the appropriate ANOVA (one-way, two-way, repeated measures), (3) Report F-statistics and p-values, (4) Run post-hoc pairwise comparisons with correction, (5) Calculate effect sizes (eta²), (6) Create bar/box plots with significance markers.",
     "suggestedSkills": [
       "statistical-analysis",
       "statsmodels",
@@ -830,7 +835,8 @@
     "icon": "Search",
     "prompt": "Search the literature on the topic: {topic}. Find the most relevant and highly cited papers, summarize key findings from each, identify major themes and consensus, note any controversies, and highlight gaps in the current knowledge. Provide a structured bibliography.",
     "suggestedSkills": [
-      "paper-lookup"
+      "paper-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -860,7 +866,7 @@
     "description": "Side-by-side analysis of multiple papers",
     "category": "literature",
     "icon": "GitCompare",
-    "prompt": "Compare and contrast the uploaded papers. Create a structured comparison covering: (1) Research questions and objectives, (2) Methodological approaches, (3) Key findings \u2014 agreements and contradictions, (4) Strengths and weaknesses of each, (5) Which provides stronger evidence and why. Present as a comparative table where appropriate.",
+    "prompt": "Compare and contrast the uploaded papers. Create a structured comparison covering: (1) Research questions and objectives, (2) Methodological approaches, (3) Key findings — agreements and contradictions, (4) Strengths and weaknesses of each, (5) Which provides stronger evidence and why. Present as a comparative table where appropriate.",
     "suggestedSkills": [
       "scientific-critical-thinking",
       "peer-review"
@@ -877,7 +883,8 @@
     "prompt": "Create a research landscape map for the field of: {topic}. Identify the major research themes, key research groups and labs, landmark papers, current trends, emerging directions, and funding patterns. Visualize the landscape as a structured diagram or concept map.",
     "suggestedSkills": [
       "research-lookup",
-      "scientific-visualization"
+      "scientific-visualization",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -897,7 +904,8 @@
     "prompt": "Design a systematic review protocol for: {question}. (1) Formulate the PICO question, (2) Define inclusion/exclusion criteria, (3) Create search strategies for PubMed, Web of Science, and Scopus, (4) Describe screening and data extraction procedures, (5) Plan quality assessment (e.g., Cochrane RoB, Newcastle-Ottawa), (6) Outline the analysis plan. Follow PRISMA guidelines.",
     "suggestedSkills": [
       "literature-review",
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -918,7 +926,8 @@
     "suggestedSkills": [
       "paper-lookup",
       "scholar-evaluation",
-      "networkx"
+      "networkx",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -959,7 +968,8 @@
     "suggestedSkills": [
       "paper-lookup",
       "scientific-visualization",
-      "matplotlib"
+      "matplotlib",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -983,7 +993,8 @@
     "icon": "Newspaper",
     "prompt": "Search for recent preprints on: {topic}. Check bioRxiv, medRxiv, arXiv, and other relevant preprint servers. (1) List the most relevant preprints from the past {months} months, (2) Summarize each paper's main finding in 2-3 sentences, (3) Note which have been peer-reviewed or published, (4) Highlight any contradictory findings.",
     "suggestedSkills": [
-      "paper-lookup"
+      "paper-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1029,7 +1040,8 @@
     "prompt": "Systematically compare methods for: {task}. (1) Identify the main methods used in the literature, (2) Compare on criteria: accuracy, computational cost, ease of use, assumptions, sample size requirements, (3) Summarize which method is best under which conditions, (4) Create a comparison table, (5) Provide recommendations.",
     "suggestedSkills": [
       "research-lookup",
-      "scientific-critical-thinking"
+      "scientific-critical-thinking",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1049,7 +1061,8 @@
     "prompt": "Draft a Specific Aim page for a grant proposal on: {topic}. Include: (1) opening paragraph establishing significance and knowledge gap, (2) overall objective and central hypothesis, (3) 2-3 specific aims with brief rationale and approach for each, (4) closing statement on expected impact. Target agency: {agency}",
     "suggestedSkills": [
       "scientific-writing",
-      "research-grants"
+      "research-grants",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1149,7 +1162,8 @@
     "suggestedSkills": [
       "scientific-writing",
       "research-grants",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1169,7 +1183,8 @@
     "prompt": "Write the Innovation section for a grant proposal on: {topic}. Describe: (1) How the approach differs from existing methods, (2) New technologies or techniques being applied, (3) Novel conceptual framework or hypothesis, (4) Why this innovation matters for advancing the field. Be specific and avoid generic claims.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-grants"
+      "research-grants",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1240,7 +1255,8 @@
     "prompt": "Write a Data Management Plan for a {agency} grant on: {topic}. Cover: (1) Types of data generated, (2) Data standards and formats, (3) Access and sharing policies, (4) Archiving and preservation plan, (5) Privacy and security considerations, (6) Roles and responsibilities. Follow {agency} DMS policy requirements.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-grants"
+      "research-grants",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1341,7 +1357,8 @@
     "icon": "Rss",
     "prompt": "Write an engaging scientific blog post based on the uploaded paper or results. Use an accessible tone, hook the reader with a compelling opening, explain the science clearly with examples and analogies, and end with why this matters. Target length: 800-1200 words.",
     "suggestedSkills": [
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [],
     "requiresFiles": true
@@ -1374,7 +1391,8 @@
     "icon": "Megaphone",
     "prompt": "Write an institutional press release about the uploaded research paper or findings. Include: (1) Attention-grabbing headline, (2) Lead paragraph with the key finding, (3) Context and significance, (4) Quotes from researchers, (5) Methods in plain language, (6) Future implications, (7) Contact information placeholder. Write at an 8th-grade reading level.",
     "suggestedSkills": [
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [],
     "requiresFiles": true
@@ -1387,7 +1405,8 @@
     "icon": "Send",
     "prompt": "Create a social media thread (Twitter/X or LinkedIn) summarizing the uploaded paper or research finding. Write {num_posts} posts that: (1) Hook with the key finding, (2) Explain the context, (3) Describe the method simply, (4) Present the main result, (5) State why it matters, (6) Include relevant hashtags. Keep each post under 280 characters for Twitter.",
     "suggestedSkills": [
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1407,7 +1426,8 @@
     "prompt": "Write a podcast script discussing: {topic}. Structure: (1) Engaging introduction with a hook, (2) Background context, (3) Main discussion points based on recent findings, (4) Interview-style questions and talking points, (5) Conclusion with key takeaways. Target length: {duration} minutes of speaking. Use conversational but accurate language.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1432,7 +1452,8 @@
     "prompt": "Write a policy brief on: {topic}. Target audience: {audience}. Include: (1) Executive summary, (2) Problem statement with data, (3) Key research findings, (4) Policy options with pros/cons, (5) Recommended actions, (6) Implementation considerations. Keep to 2-4 pages and lead with actionable recommendations.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1457,7 +1478,8 @@
     "prompt": "Create patient education materials about: {condition}. Include: (1) What the condition is (plain language), (2) Causes and risk factors, (3) Signs and symptoms, (4) Diagnosis and treatment options, (5) What to expect, (6) When to seek help, (7) Frequently asked questions. Write at a 6th-grade reading level. Avoid medical jargon.",
     "suggestedSkills": [
       "scientific-writing",
-      "clinical-decision-support"
+      "clinical-decision-support",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -1477,7 +1499,8 @@
     "prompt": "Write a textbook chapter on: {topic} for a {level} audience. Include: (1) Learning objectives, (2) Introduction with historical context, (3) Core concepts explained progressively, (4) Worked examples and case studies, (5) Key equations/formulas with derivations, (6) Summary and key takeaways, (7) Review questions. Target length: {length} words.",
     "suggestedSkills": [
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -2545,7 +2568,7 @@
     "description": "Build quantitative structure-activity relationship models",
     "category": "chemistry",
     "icon": "TrendingUp",
-    "prompt": "Build a QSAR model for {target_property} using the uploaded molecular dataset. (1) Calculate molecular descriptors and fingerprints, (2) Split data into training/test sets with scaffold splitting, (3) Train multiple models (random forest, gradient boosting, neural network), (4) Evaluate with cross-validation (R\u00b2, RMSE, MAE), (5) Analyze feature importance and applicability domain, (6) Predict {target_property} for new molecules if provided.",
+    "prompt": "Build a QSAR model for {target_property} using the uploaded molecular dataset. (1) Calculate molecular descriptors and fingerprints, (2) Split data into training/test sets with scaffold splitting, (3) Train multiple models (random forest, gradient boosting, neural network), (4) Evaluate with cross-validation (R², RMSE, MAE), (5) Analyze feature importance and applicability domain, (6) Predict {target_property} for new molecules if provided.",
     "suggestedSkills": [
       "rdkit",
       "molfeat",
@@ -2711,7 +2734,7 @@
     "description": "Design experiments to optimize reaction conditions",
     "category": "chemistry",
     "icon": "Target",
-    "prompt": "Design an optimization campaign for the reaction: {reaction}. (1) Identify key variables (temperature, solvent, catalyst loading, concentration, time), (2) Design a DoE (Design of Experiments) plan \u2014 factorial or Bayesian optimization, (3) Suggest the initial screening set, (4) Define the objective function and constraints, (5) Propose an iterative optimization strategy, (6) Estimate the number of experiments needed.",
+    "prompt": "Design an optimization campaign for the reaction: {reaction}. (1) Identify key variables (temperature, solvent, catalyst loading, concentration, time), (2) Design a DoE (Design of Experiments) plan — factorial or Bayesian optimization, (3) Suggest the initial screening set, (4) Define the objective function and constraints, (5) Propose an iterative optimization strategy, (6) Estimate the number of experiments needed.",
     "suggestedSkills": [
       "rdkit",
       "pymoo",
@@ -2985,7 +3008,7 @@
     "description": "Fit dose-response curves and calculate EC50/IC50",
     "category": "drugdiscovery",
     "icon": "TrendingUp",
-    "prompt": "Analyze the uploaded dose-response data. (1) Fit a 4-parameter logistic (Hill) curve to each compound, (2) Calculate EC50/IC50 with 95% confidence intervals, (3) Determine Hill coefficient and maximal response, (4) Compare potency across compounds, (5) Assess curve quality (R\u00b2, residual plots), (6) Generate publication-quality dose-response plots with error bars.",
+    "prompt": "Analyze the uploaded dose-response data. (1) Fit a 4-parameter logistic (Hill) curve to each compound, (2) Calculate EC50/IC50 with 95% confidence intervals, (3) Determine Hill coefficient and maximal response, (4) Compare potency across compounds, (5) Assess curve quality (R², residual plots), (6) Generate publication-quality dose-response plots with error bars.",
     "suggestedSkills": [
       "statistical-analysis",
       "statsmodels",
@@ -3006,7 +3029,8 @@
       "database-lookup",
       "rdkit",
       "medchem",
-      "clinical-decision-support"
+      "clinical-decision-support",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3027,7 +3051,8 @@
     "suggestedSkills": [
       "database-lookup",
       "statistical-analysis",
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3094,7 +3119,8 @@
     "icon": "Dna",
     "prompt": "Perform pharmacogenomics analysis for {drug}. (1) Identify pharmacogenomic variants from ClinPGx and PharmGKB, (2) Assess how {genotype} variants affect drug metabolism, efficacy, and toxicity, (3) Review FDA pharmacogenomic labels, (4) Predict metabolizer status (poor, intermediate, extensive, ultra-rapid), (5) Recommend dosing adjustments, (6) Generate a clinical PGx report.",
     "suggestedSkills": [
-      "database-lookup"
+      "database-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3119,7 +3145,8 @@
     "prompt": "Build a drug-target interaction network for: {compounds}. (1) Query known targets from ChEMBL, DrugBank, and BindingDB, (2) Predict additional targets computationally, (3) Construct the drug-target network, (4) Identify off-target effects and polypharmacology, (5) Enrich targets with pathway information, (6) Visualize the network and identify therapeutic vs safety-relevant targets.",
     "suggestedSkills": [
       "database-lookup",
-      "networkx"
+      "networkx",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3162,7 +3189,8 @@
       "rdkit",
       "database-lookup",
       "medchem",
-      "pytdc"
+      "pytdc",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3361,7 +3389,7 @@
     "placeholders": [
       {
         "key": "channel",
-        "label": "Decay channel or process (e.g., H\u2192\u03b3\u03b3, Z\u2192\u03bc\u03bc)",
+        "label": "Decay channel or process (e.g., H→γγ, Z→μμ)",
         "required": true
       }
     ],
@@ -3893,7 +3921,8 @@
     "suggestedSkills": [
       "statistical-analysis",
       "scientific-writing",
-      "research-lookup"
+      "research-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -3979,7 +4008,8 @@
       "statistical-analysis",
       "scikit-survival",
       "scientific-visualization",
-      "statsmodels"
+      "statsmodels",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4113,7 +4143,8 @@
     "suggestedSkills": [
       "literature-review",
       "statistical-analysis",
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4134,7 +4165,8 @@
     "suggestedSkills": [
       "research-lookup",
       "clinical-decision-support",
-      "scientific-writing"
+      "scientific-writing",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4232,7 +4264,7 @@
     "description": "Analyze repeated measures and panel data over time",
     "category": "clinical",
     "icon": "LineChart",
-    "prompt": "Analyze the uploaded longitudinal data. Outcome: {outcome}, measured at {timepoints} timepoints. (1) Visualize individual trajectories and group means, (2) Fit mixed-effects models (random intercepts and slopes), (3) Test group \u00d7 time interactions for {groups}, (4) Handle missing data (MAR assumption, multiple imputation), (5) Check model assumptions, (6) Report trajectory plots and model estimates.",
+    "prompt": "Analyze the uploaded longitudinal data. Outcome: {outcome}, measured at {timepoints} timepoints. (1) Visualize individual trajectories and group means, (2) Fit mixed-effects models (random intercepts and slopes), (3) Test group × time interactions for {groups}, (4) Handle missing data (MAR assumption, multiple imputation), (5) Check model assumptions, (6) Report trajectory plots and model estimates.",
     "suggestedSkills": [
       "statsmodels",
       "statistical-analysis",
@@ -4268,7 +4300,8 @@
     "suggestedSkills": [
       "database-lookup",
       "statistical-analysis",
-      "scientific-visualization"
+      "scientific-visualization",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4810,7 +4843,8 @@
     "suggestedSkills": [
       "geopandas",
       "geomaster",
-      "scientific-visualization"
+      "scientific-visualization",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4879,7 +4913,8 @@
     "suggestedSkills": [
       "research-lookup",
       "scientific-writing",
-      "geopandas"
+      "geopandas",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -4959,7 +4994,8 @@
       "geopandas",
       "research-lookup",
       "scientific-writing",
-      "scientific-visualization"
+      "scientific-visualization",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5270,7 +5306,8 @@
       "usfiscaldata",
       "database-lookup",
       "scientific-visualization",
-      "statistical-analysis"
+      "statistical-analysis",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5297,7 +5334,8 @@
       "scikit-learn",
       "scientific-visualization",
       "statistical-analysis",
-      "geopandas"
+      "geopandas",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5374,7 +5412,8 @@
       "database-lookup",
       "scientific-visualization",
       "geopandas",
-      "statistical-analysis"
+      "statistical-analysis",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5499,7 +5538,8 @@
       "transformers",
       "scientific-visualization",
       "statistical-analysis",
-      "matplotlib"
+      "matplotlib",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5521,7 +5561,8 @@
       "statsmodels",
       "statistical-analysis",
       "scientific-visualization",
-      "matplotlib"
+      "matplotlib",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5585,7 +5626,8 @@
       "statistical-analysis",
       "scientific-visualization",
       "matplotlib",
-      "statsmodels"
+      "statsmodels",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5607,7 +5649,8 @@
       "geopandas",
       "database-lookup",
       "scientific-visualization",
-      "statsmodels"
+      "statsmodels",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -5629,7 +5672,8 @@
       "statistical-analysis",
       "scientific-visualization",
       "matplotlib",
-      "database-lookup"
+      "database-lookup",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -6388,7 +6432,7 @@
     "description": "Computational fluid dynamics simulation and analysis",
     "category": "engineering",
     "icon": "Wind",
-    "prompt": "Set up and run a CFD simulation for: {geometry}. (1) Define the geometry and meshing strategy, (2) Set boundary conditions: {conditions}, (3) Select turbulence model (k-\u03b5, k-\u03c9 SST, LES), (4) Run the simulation to convergence, (5) Post-process: velocity fields, pressure distribution, drag/lift coefficients, (6) Visualize streamlines and contour plots.",
+    "prompt": "Set up and run a CFD simulation for: {geometry}. (1) Define the geometry and meshing strategy, (2) Set boundary conditions: {conditions}, (3) Select turbulence model (k-ε, k-ω SST, LES), (4) Run the simulation to convergence, (5) Post-process: velocity fields, pressure distribution, drag/lift coefficients, (6) Visualize streamlines and contour plots.",
     "suggestedSkills": [
       "fluidsim",
       "matplotlib",
@@ -6780,7 +6824,7 @@
     "description": "Classify galaxy shapes and structural parameters",
     "category": "astro",
     "icon": "Telescope",
-    "prompt": "Classify galaxy morphology from the uploaded imaging data. (1) Detect and extract galaxy images, (2) Measure structural parameters (S\u00e9rsic index, effective radius, axis ratio, position angle), (3) Classify using the Hubble sequence (elliptical, spiral, irregular), (4) Identify features (bars, rings, tidal tails, mergers), (5) Compare with catalog classifications, (6) Generate a morphology summary with annotated images.",
+    "prompt": "Classify galaxy morphology from the uploaded imaging data. (1) Detect and extract galaxy images, (2) Measure structural parameters (Sérsic index, effective radius, axis ratio, position angle), (3) Classify using the Hubble sequence (elliptical, spiral, irregular), (4) Identify features (bars, rings, tidal tails, mergers), (5) Compare with catalog classifications, (6) Generate a morphology summary with annotated images.",
     "suggestedSkills": [
       "astropy",
       "scikit-learn",
@@ -6796,7 +6840,7 @@
     "description": "Calculate orbits, transfers, and mission trajectories",
     "category": "astro",
     "icon": "Rocket",
-    "prompt": "Calculate orbital mechanics for: {mission}. (1) Define the initial and target orbits (a, e, i, \u03a9, \u03c9, \u03bd), (2) Compute the transfer trajectory ({transfer_type}), (3) Calculate delta-v requirements, (4) Determine flight time and launch windows, (5) Analyze gravitational assists if applicable, (6) Visualize the trajectory in 3D. Report total delta-v budget.",
+    "prompt": "Calculate orbital mechanics for: {mission}. (1) Define the initial and target orbits (a, e, i, Ω, ω, ν), (2) Compute the transfer trajectory ({transfer_type}), (3) Calculate delta-v requirements, (4) Determine flight time and launch windows, (5) Analyze gravitational assists if applicable, (6) Visualize the trajectory in 3D. Report total delta-v budget.",
     "suggestedSkills": [
       "astropy",
       "sympy",
@@ -7106,7 +7150,8 @@
       "scientific-visualization",
       "matplotlib",
       "statistical-analysis",
-      "xlsx"
+      "xlsx",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -7155,7 +7200,7 @@
     "description": "Bottom-up and top-down market sizing for investment thesis",
     "category": "finance",
     "icon": "Globe",
-    "prompt": "Size the market for {market}. (1) Top-down: start from the broadest addressable market and apply segmentation filters, (2) Bottom-up: estimate from unit economics \u00d7 addressable customers, (3) Cross-validate both approaches, (4) Analyze market growth rate and key drivers, (5) Map the competitive landscape and market share distribution, (6) Project market size for the next {years} years under base and bull scenarios. Cite all data sources.",
+    "prompt": "Size the market for {market}. (1) Top-down: start from the broadest addressable market and apply segmentation filters, (2) Bottom-up: estimate from unit economics × addressable customers, (3) Cross-validate both approaches, (4) Analyze market growth rate and key drivers, (5) Map the competitive landscape and market share distribution, (6) Project market size for the next {years} years under base and bull scenarios. Cite all data sources.",
     "suggestedSkills": [
       "market-research-reports",
       "database-lookup",
@@ -7263,7 +7308,7 @@
       },
       {
         "key": "terms",
-        "label": "Deal terms (price, structure \u2014 if known)",
+        "label": "Deal terms (price, structure — if known)",
         "required": false
       }
     ],
@@ -7312,7 +7357,7 @@
     "description": "Comprehensive due diligence analysis on a target company",
     "category": "finance",
     "icon": "ClipboardCheck",
-    "prompt": "Conduct due diligence on {company} for a potential {deal_type} investment. (1) Financial DD: analyze 3-5 years of financials \u2014 revenue quality, margin trends, working capital cycles, capex requirements, (2) Commercial DD: market position, customer concentration, competitive moats, TAM analysis, (3) Operational DD: management team assessment, key person risk, scalability of operations, (4) Legal/regulatory: flag potential risks in the sector, (5) Technology DD if relevant: IP, tech stack, technical debt, (6) Generate a DD findings summary with red flags, yellow flags, and green lights.",
+    "prompt": "Conduct due diligence on {company} for a potential {deal_type} investment. (1) Financial DD: analyze 3-5 years of financials — revenue quality, margin trends, working capital cycles, capex requirements, (2) Commercial DD: market position, customer concentration, competitive moats, TAM analysis, (3) Operational DD: management team assessment, key person risk, scalability of operations, (4) Legal/regulatory: flag potential risks in the sector, (5) Technology DD if relevant: IP, tech stack, technical debt, (6) Generate a DD findings summary with red flags, yellow flags, and green lights.",
     "suggestedSkills": [
       "database-lookup",
       "market-research-reports",
@@ -7339,7 +7384,7 @@
     "description": "Analyze uploaded data room files to evaluate a startup investment opportunity",
     "category": "finance",
     "icon": "FileSearch",
-    "prompt": "Conduct comprehensive investment due diligence on {company} by analyzing the uploaded data room files. Work through each file systematically. (1) Financial DD: parse and analyze historical P&L, balance sheet, and cash flow statements \u2014 assess revenue quality, burn rate, runway, unit economics, and working capital trends, (2) Commercial DD: review customer data (concentration, retention cohorts, NPS scores, pipeline) and validate TAM/SAM claims against uploaded market data, (3) Legal DD: review corporate documents (certificate of incorporation, shareholder agreements, IP assignments, outstanding litigation, regulatory filings), (4) Cap Table DD: reconstruct the cap table from uploaded documents \u2014 analyze dilution, option pool, liquidation preferences, anti-dilution provisions, and pro-rata rights, (5) Team DD: evaluate org chart, key person dependencies, compensation data, and vesting schedules, (6) Technical DD: assess the tech stack, architecture diagrams, and any IP/patent filings, (7) Operational DD: review vendor contracts, insurance, and compliance documents, (8) Synthesize all findings into a structured DD report with: executive summary, red flags (deal-breakers), yellow flags (negotiation points), green lights (strengths), key questions for management, and a risk-adjusted valuation range with investment recommendation.",
+    "prompt": "Conduct comprehensive investment due diligence on {company} by analyzing the uploaded data room files. Work through each file systematically. (1) Financial DD: parse and analyze historical P&L, balance sheet, and cash flow statements — assess revenue quality, burn rate, runway, unit economics, and working capital trends, (2) Commercial DD: review customer data (concentration, retention cohorts, NPS scores, pipeline) and validate TAM/SAM claims against uploaded market data, (3) Legal DD: review corporate documents (certificate of incorporation, shareholder agreements, IP assignments, outstanding litigation, regulatory filings), (4) Cap Table DD: reconstruct the cap table from uploaded documents — analyze dilution, option pool, liquidation preferences, anti-dilution provisions, and pro-rata rights, (5) Team DD: evaluate org chart, key person dependencies, compensation data, and vesting schedules, (6) Technical DD: assess the tech stack, architecture diagrams, and any IP/patent filings, (7) Operational DD: review vendor contracts, insurance, and compliance documents, (8) Synthesize all findings into a structured DD report with: executive summary, red flags (deal-breakers), yellow flags (negotiation points), green lights (strengths), key questions for management, and a risk-adjusted valuation range with investment recommendation.",
     "suggestedSkills": [
       "database-lookup",
       "market-research-reports",
@@ -7362,7 +7407,7 @@
     "description": "Critically evaluate a startup pitch deck for an investor audience",
     "category": "finance",
     "icon": "Presentation",
-    "prompt": "Analyze the uploaded pitch deck for {company}. Score each section (1-10) and provide feedback: (1) Problem statement \u2014 is it compelling and real? (2) Solution \u2014 does it clearly solve the problem? (3) Market size \u2014 is the TAM/SAM credible? (4) Business model \u2014 are unit economics attractive? (5) Traction \u2014 what evidence of product-market fit? (6) Team \u2014 relevant experience and completeness? (7) Competition \u2014 honest assessment of landscape? (8) Financials \u2014 are projections realistic? (9) Ask \u2014 is the raise amount justified? Conclude with a go/no-go recommendation and key questions for the founders.",
+    "prompt": "Analyze the uploaded pitch deck for {company}. Score each section (1-10) and provide feedback: (1) Problem statement — is it compelling and real? (2) Solution — does it clearly solve the problem? (3) Market size — is the TAM/SAM credible? (4) Business model — are unit economics attractive? (5) Traction — what evidence of product-market fit? (6) Team — relevant experience and completeness? (7) Competition — honest assessment of landscape? (8) Financials — are projections realistic? (9) Ask — is the raise amount justified? Conclude with a go/no-go recommendation and key questions for the founders.",
     "suggestedSkills": [
       "market-research-reports",
       "parallel-web",
@@ -7566,7 +7611,8 @@
       "scientific-visualization",
       "what-if-oracle",
       "xlsx",
-      "statistical-analysis"
+      "statistical-analysis",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -7593,7 +7639,8 @@
       "database-lookup",
       "statsmodels",
       "scientific-visualization",
-      "statistical-analysis"
+      "statistical-analysis",
+      "parallel-web"
     ],
     "placeholders": [],
     "requiresFiles": true
@@ -7631,7 +7678,8 @@
       "database-lookup",
       "scientific-visualization",
       "matplotlib",
-      "sympy"
+      "sympy",
+      "parallel-web"
     ],
     "placeholders": [
       {
@@ -7658,7 +7706,8 @@
       "database-lookup",
       "xlsx",
       "scientific-visualization",
-      "statistical-analysis"
+      "statistical-analysis",
+      "parallel-web"
     ],
     "placeholders": [
       {
